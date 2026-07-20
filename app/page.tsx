@@ -124,7 +124,7 @@ export default function Home() {
         </div>
 
         <nav className="site-nav" aria-label={copy.nav.aria}>
-          <a className="brand" href="#top" aria-label={copy.nav.homeAria}>CompanyOS</a>
+          <a className="brand" href="#top" aria-label={copy.nav.homeAria}>BobbyOS</a>
           <div className="nav-links">
             <a href="#system">{copy.nav.system}</a>
             <a href="#work">{copy.nav.work}</a>
@@ -160,7 +160,7 @@ export default function Home() {
 
           <div className="company-core">
             <div className="core-header">
-              <span>CompanyOS</span>
+              <span>BobbyOS</span>
               <span className="core-status"><i /> {copy.hero.status}</span>
             </div>
             <div className="core-body">
@@ -316,7 +316,7 @@ export default function Home() {
 
         <div className="development-console reveal">
           <div className="console-topbar">
-            <span>CompanyOS</span>
+            <span>BobbyOS</span>
             <strong>{copy.development.mode}</strong>
             <span className="console-ready"><i /> {copy.development.connected}</span>
           </div>
@@ -374,7 +374,7 @@ export default function Home() {
             <div className="workspace-orbit orbit-a"><span>North & Coast<small>{copy.modulesSection.workspaceTypes[0]}</small></span></div>
             <div className="workspace-orbit orbit-b"><span>Vela Studio<small>{copy.modulesSection.workspaceTypes[1]}</small></span></div>
             <div className="workspace-orbit orbit-c"><span>Fieldwork<small>{copy.modulesSection.workspaceTypes[2]}</small></span></div>
-            <div className="workspace-center"><span>CompanyOS<small>{copy.modulesSection.sharedAdmin}</small></span></div>
+            <div className="workspace-center"><span>BobbyOS<small>{copy.modulesSection.sharedAdmin}</small></span></div>
           </div>
         </div>
       </section>
@@ -392,7 +392,7 @@ export default function Home() {
           {ownershipProofs.map(([title, detail], index) => <div key={title}><span>{String(index + 1).padStart(2, "0")}</span><strong>{title}</strong><small>{detail}</small></div>)}
         </div>
         <div className="closing-mark reveal">
-          <p className="closing-brand">CompanyOS</p>
+          <p className="closing-brand">BobbyOS</p>
           <h3>{copy.ownership.closing}<br />{copy.ownership.closingSecond}</h3>
           <small>{copy.ownership.access}</small>
         </div>

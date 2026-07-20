@@ -11,7 +11,7 @@ test("the GitHub Pages artifact is complete and static", () => {
 
   const html = readFileSync("dist/index.html", "utf8");
   assert.match(html, /<div id="root"><\/div>/);
-  assert.match(html, /CompanyOS/);
+  assert.match(html, /BobbyOS/);
   assert.match(html, /hreflang="pt-BR"/);
   assert.match(html, /hreflang="es-419"/);
   assert.doesNotMatch(html, /\/api\//);
