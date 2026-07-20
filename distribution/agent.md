@@ -2,7 +2,7 @@
 
 This document is the machine-readable installation contract for the public CompanyOS beta channel at https://companyos.soft.group/distribution.
 
-The release package contains the compiled CompanyOS runtime, third-party runtime dependencies, database migrations, local-assistant skills, and release utilities. It does not contain the private source repository, original CompanyOS TypeScript or TSX files, tests, source maps, development history, environment files, company data, uploads, or backups.
+The release package contains the compiled CompanyOS runtime, third-party runtime dependencies, database migrations, local-assistant skills, and release utilities. It does not contain the private source repository, original CompanyOS TypeScript or TSX files, tests, CompanyOS source maps, development history, environment files, company data, uploads, or backups.
 
 ## Safety rules
 
