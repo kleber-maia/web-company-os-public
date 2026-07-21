@@ -15,7 +15,7 @@ import {
 import os from "node:os";
 import path from "node:path";
 
-const feedUrl = process.env.OPERA_OS_UPDATE_FEED_URL || "https://companyos.soft.group/distribution/releases/latest.json";
+const feedUrl = process.env.OPERA_OS_UPDATE_FEED_URL || "https://operaos.ai/distribution/releases/latest.json";
 const trustedReleaseAssetPrefixes = [
   "/kleber-maia/web-opera-os-public/releases/download/",
   "/kleber-maia/web-company-os-public/releases/download/",
@@ -223,7 +223,7 @@ function parseEnvironment(file) {
 
 function required(name) {
   const value = process.env[name]?.trim();
-  if (!value) throw new Error(`${name} is required. Read https://companyos.soft.group/distribution/agent.txt before installing.`);
+  if (!value) throw new Error(`${name} is required. Read https://operaos.ai/distribution/agent.txt before installing.`);
   return value;
 }
 

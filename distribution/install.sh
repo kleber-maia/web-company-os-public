@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 
-INSTALLER_URL="https://companyos.soft.group/distribution/installer.mjs"
+INSTALLER_URL="https://operaos.ai/distribution/installer.mjs"
 INSTALLER_FILE="$(mktemp -t operaos-installer).mjs"
 trap 'rm -f "$INSTALLER_FILE"' EXIT
 

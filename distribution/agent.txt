@@ -1,6 +1,6 @@
 # Install OperaOS Beta
 
-This document is the machine-readable installation contract for the public OperaOS beta channel at https://companyos.soft.group/distribution.
+This document is the machine-readable installation contract for the public OperaOS beta channel at https://operaos.ai/distribution.
 
 The release package contains the compiled OperaOS runtime, third-party runtime dependencies, database migrations, local-assistant skills, and release utilities. It does not contain the private source repository, original OperaOS TypeScript or TSX files, tests, source maps, development history, environment files, company data, uploads, or backups.
 
@@ -40,7 +40,7 @@ The optional `OPERA_OS_SERVICE_ROOT` changes the installation directory from `~/
 Set the required values only in the installer process environment, then run:
 
 ```bash
-curl --fail --silent --show-error --location https://companyos.soft.group/distribution/install.sh | bash
+curl --fail --silent --show-error --location https://operaos.ai/distribution/install.sh | bash
 ```
 
 The installer downloads the signed latest manifest from this origin and the compiled runtime from the approved public GitHub Release linked by that manifest. It creates target-local secrets, applies migrations to the fresh database, creates the first administrator, installs a per-user background service, starts OperaOS, and checks its login page.
@@ -57,6 +57,6 @@ Report the installed version, service health, and login URL. Never report the da
 
 ## Updates
 
-OperaOS checks `https://companyos.soft.group/distribution/releases/latest.json`. A global administrator reviews release notes and database changes under **Settings → Updates**, approves installation, and watches backup, download, migration, restart, and health verification progress. Updates reuse the public key pinned during installation and refuse altered, unsigned, wrong-platform, or older packages.
+OperaOS checks `https://operaos.ai/distribution/releases/latest.json`. A global administrator reviews release notes and database changes under **Settings → Updates**, approves installation, and watches backup, download, migration, restart, and health verification progress. Updates reuse the public key pinned during installation and refuse altered, unsigned, wrong-platform, or older packages.
 
-Current beta release: `20260721195603-b902850` published July 21, 2026.
+Current beta release: `20260721200520-9f2a20d` published July 21, 2026.
