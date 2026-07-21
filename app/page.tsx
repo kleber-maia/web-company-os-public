@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState } from "react";
+import type { CSSProperties, PointerEvent as ReactPointerEvent } from "react";
 import { COPY, normalizeLocale } from "./i18n";
 import type { Locale } from "./i18n";
 
@@ -39,6 +39,8 @@ function getInitialLocale(): Locale {
 }
 
 export default function Home() {
+  const stageRef = useRef<HTMLDivElement>(null);
+  const touchSlowRef = useRef(false);
   const [locale, setLocale] = useState<Locale>(getInitialLocale);
   const copy = COPY[locale];
   const systemParts = copy.systemParts as Array<[string, string, string]>;
@@ -87,6 +89,26 @@ export default function Home() {
     };
   }, []);
 
+  const setOrbitPlaybackRate = (rate: number) => {
+    stageRef.current?.querySelectorAll<HTMLElement>(".orbiting-part, .part-billboard").forEach((element) => {
+      element.getAnimations().forEach((animation) => animation.updatePlaybackRate(rate));
+    });
+  };
+
+  const handleStagePointerEnter = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "touch") setOrbitPlaybackRate(0.5);
+  };
+
+  const handleStagePointerLeave = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "touch") setOrbitPlaybackRate(touchSlowRef.current ? 0.5 : 1);
+  };
+
+  const handleStagePointerUp = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (event.pointerType !== "touch") return;
+    touchSlowRef.current = !touchSlowRef.current;
+    setOrbitPlaybackRate(touchSlowRef.current ? 0.5 : 1);
+  };
+
   return (
     <main>
       <section className="hero" id="top">
@@ -126,7 +148,14 @@ export default function Home() {
           <p className="hero-lede">{copy.hero.lede}</p>
         </div>
 
-        <div className="system-stage" aria-label={copy.hero.stageAria}>
+        <div
+          className="system-stage"
+          aria-label={copy.hero.stageAria}
+          ref={stageRef}
+          onPointerEnter={handleStagePointerEnter}
+          onPointerLeave={handleStagePointerLeave}
+          onPointerUp={handleStagePointerUp}
+        >
           <div className="orbit-haze" aria-hidden="true" />
           <div className="cross-orbit" aria-hidden="true"><i /><i /><span /></div>
           <div className="orbital-scene">
@@ -185,7 +214,6 @@ export default function Home() {
 
         </div>
 
-        <a className="scroll-cue" href="#system"><span>{copy.hero.scroll}</span><i aria-hidden="true" /></a>
       </section>
 
       <section className="system-section" id="system">
